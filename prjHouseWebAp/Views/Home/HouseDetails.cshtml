@@ -1,0 +1,42 @@
+﻿@model prjHouseWebAp.ViewModels.MemberHouseViewModel
+
+@{
+    ViewBag.Title = "DTC租屋網";
+    Layout = "~/Views/Shared/_MobileHouseLayout.cshtml";
+}
+
+
+        <div data-role="content" style="background:#FFF;">
+            <div>
+                <img src="~/Images/@Model.House.照片" id="img" class="ad" />
+                <h3 id="name">@Model.House.名稱</h3>
+                <h3 id="msg">@Model.House.說明</h3>
+                <h3 id="type">@Model.House.類型</h3>
+
+                <hr />
+                <h3 id="hname">@Model.House.地址</h3>
+
+
+                <div data-role="controlgroup" style="margin-left:auto;margin-right:auto;" data-type="horizontal">
+                    <a href="tel:@Model.Member.電話" data-role="button">預約看屋</a>
+                    <a href="@Url.Action("AddMsg")?id=@Model.House.地點編號" data-role="button" data-ajax="false">我要評語</a>
+                    <a href="https://www.google.com.tw/maps/place/@Model.House.地址" data-role="button" data-ajax="false">地點所在</a>
+                </div>
+
+
+                <p></p>
+                <ul data-role="listview" data-inset="true" >
+                    @{ 
+                        foreach(var item in Model.Message)
+                        {
+                            <li>
+                                <img src="~/Images/@item.圖示" />
+                                <h2>@item.說明</h2>
+                                <p>@item.日期</p>
+                            </li>
+                        }
+                    }
+                </ul>
+            </div>
+        </div>
+

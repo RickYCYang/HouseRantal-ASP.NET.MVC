@@ -1,0 +1,62 @@
+﻿@model prjHouseWebAp.Models.會員
+
+@{
+    ViewBag.Title = "會員編輯";
+}
+
+<h2>會員編輯</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="container" style="margin-top:20px;">
+        <div class="row">
+            <div class="panel panel-warning">
+                <div class="panel-heading">會員註冊</div>
+                <div class="panel-body">
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.帳號)
+                        @Html.EditorFor(model => model.帳號, new { htmlAttributes = new { @class = "form-control", @readonly="readonly" } })
+                        @Html.ValidationMessageFor(model => model.帳號, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.密碼)
+                        @Html.EditorFor(model => model.密碼, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.密碼, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.姓名)
+                        @Html.EditorFor(model => model.姓名, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.姓名, "", new { @class = "text-danger" })
+
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.電話)
+                        @Html.EditorFor(model => model.電話, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.電話, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.角色)
+                        <select class="form-control" name="角色">
+                            <option value="房東" @(Model.角色=="房東"?"Selected":"") >房東</option>
+                            <option value="仲介" @(Model.角色=="仲介"?"Selected":"") >仲介</option>
+                            <option value="管理者" @(Model.角色 == "管理者" ? "Selected" : "")>管理者</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+
+                        <input type="submit" value="編輯" class="btn btn-warning" />
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+}

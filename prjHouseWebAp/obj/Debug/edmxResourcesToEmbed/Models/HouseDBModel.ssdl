@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HouseDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="地點名稱">
+    <Key>
+      <PropertyRef Name="地點編號" />
+    </Key>
+    <Property Name="地點編號" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="類型" Type="nvarchar" MaxLength="50" />
+    <Property Name="帳號" Type="nvarchar" MaxLength="50" />
+    <Property Name="名稱" Type="nvarchar" MaxLength="50" />
+    <Property Name="照片" Type="nvarchar" MaxLength="50" />
+    <Property Name="說明" Type="ntext" />
+    <Property Name="地址" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="評語">
+    <Key>
+      <PropertyRef Name="評語編號" />
+    </Key>
+    <Property Name="評語編號" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="地點編號" Type="int" />
+    <Property Name="圖示" Type="nvarchar" MaxLength="50" />
+    <Property Name="說明" Type="ntext" />
+    <Property Name="日期" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="會員">
+    <Key>
+      <PropertyRef Name="帳號" />
+    </Key>
+    <Property Name="帳號" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="密碼" Type="nvarchar" MaxLength="50" />
+    <Property Name="姓名" Type="nvarchar" MaxLength="50" />
+    <Property Name="電話" Type="nvarchar" MaxLength="50" />
+    <Property Name="角色" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityContainer Name="HouseDBModelStoreContainer">
+    <EntitySet Name="地點名稱" EntityType="Self.地點名稱" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="評語" EntityType="Self.評語" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="會員" EntityType="Self.會員" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

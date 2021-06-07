@@ -1,0 +1,26 @@
+﻿@model IEnumerable<prjHouseWebAp.Models.地點名稱>
+
+@{
+    ViewBag.Title = "DTC租屋網";
+    Layout = "~/Views/Shared/_MobileHouseLayout.cshtml";
+}
+
+
+
+        <div data-role="content" style="background:#FFF;">
+            <ul data-role="listview" id="show" data-filter="true" data-inset="true">
+                @{
+                    foreach (var item in Model)
+                    {
+                        <li>
+                            <a href="@Url.Action("HouseDetails")?id=@item.地點編號" data-ajax="false">
+                                <img src="~/Images/@item.照片" />
+                                <h2>@item.名稱</h2>
+                                <p>@item.地址</p>
+                            </a>
+                        </li>
+                    }
+                }
+            </ul>
+        </div>
+

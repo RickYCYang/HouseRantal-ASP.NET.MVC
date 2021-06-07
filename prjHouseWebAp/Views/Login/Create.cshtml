@@ -1,0 +1,85 @@
+﻿@model prjHouseWebAp.Models.會員
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>會員註冊</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+</head>
+<body>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="container" style="margin-top:20px;">
+        <div class="row">
+            <div class="panel panel-warning">
+                <div class="panel-heading">會員註冊</div>
+                <div class="panel-body">
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.帳號)
+                                @Html.EditorFor(model => model.帳號, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.帳號, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.密碼)
+                                @Html.EditorFor(model => model.密碼, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.密碼, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.姓名)
+                                @Html.EditorFor(model => model.姓名, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.姓名, "", new { @class = "text-danger" })
+
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.電話)
+                                @Html.EditorFor(model => model.電話, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.電話, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.角色)
+                                <select class="form-control" name="角色">
+                                    <option value="房東">房東</option>
+                                    <option value="仲介">仲介</option>
+                                </select>
+                        </div>
+
+                        <div class="form-group">
+
+                                <input type="submit" value="註冊" class="btn btn-warning" /> 
+                            <a href="@Url.Action("Index")" class="btn btn-primary">登入</a>
+
+                        </div>
+                        @if (ViewBag.IsMember != null)
+                        {
+                            <div class="alert alert-danger">
+                                <strong>此帳號有人使用</strong> 誰重新建立！！
+                            </div>
+                        }
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+}
+
+
+
+
+</body>
+</html>

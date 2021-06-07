@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewBag.Title = "DTC租屋網";
+    Layout = "~/Views/Shared/_MobileHouseLayout.cshtml";
+}
+
+
+
+
+
+
+    
+
+        <div data-role="content" style="background:#FFF;">
+           <form action="@Url.Action("AddMsg")" method="post" data-ajax="false">
+               <h1>新增評語</h1>
+               <label for="圖示">心情</label>
+               <select name="圖示">
+                   <option value="1.jpg">好</option>
+                   <option value="2.jpg">差</option>
+               </select>
+               <label for="說明">留言</label>
+               <input type="text" name="說明" />
+               <input type="hidden" name="地點編號" value="@ViewBag.HouseId" />
+               <input type="submit" value="傳送"  />
+           </form>
+
+        </div>
+
+   

@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>DTC租屋網</title>
+    <link href="~/jQueryMobile/themes/newsTheme.css" rel="stylesheet" />
+    <link href="~/jQueryMobile/themes/jquery.mobile.icons.min.css" rel="stylesheet" />
+    <link href="~/jQueryMobile/scripts/jquery.mobile-1.4.5.min.css" rel="stylesheet" />
+    <script src="~/jQueryMobile/scripts/jquery-1.11.3.min.js"></script>
+    <script src="~/jQueryMobile/scripts/jquery.mobile-1.4.5.min.js"></script>
+</head>
+<body>
+    <style>
+        .ad {
+            max-width: 100%;
+        }
+    </style>
+
+
+
+    <div data-role="page" id="home" data-theme="d">
+        <div id="menuleft" data-role="panel" data-position="left" data-display="overlay">
+            <div data-role="header" data-theme="d"><h3>功能表選單</h3></div>
+            <br />
+            <ul data-role="listview">
+                <li><a href="@Url.Action("HouseList")?type=租屋" data-ajax="false">租屋</a></li>
+                <li><a href="@Url.Action("HouseList")?type=中古屋" data-ajax="false">中古屋</a></li>
+                <li><a href="@Url.Action("HouseList")?type=新房" data-ajax="false">新房</a></li>
+                <li><a href="@Url.Action("HouseList")?type=頂讓" data-ajax="false">頂讓</a></li>
+                <li><a href="#">教育學區</a></li>
+                <li><a href="#">夜市美食</a></li>
+                <li><a href="#">成衣工廠</a></li>
+            </ul>
+        </div>
+
+
+
+        <div data-role="header" data-position="fixed">
+            <a href="#menuleft">選單</a>
+            <h1>DTC租屋行動網</h1>
+
+        </div>
+
+
+        @RenderBody()
+
+        <div data-role="footer" data-position="fixed" data-theme="d">
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="@Url.Action("Index")" data-icon="home" data-ajax="false">首頁</a></li>
+                    <li><a href="#about" data-icon="star" data-rel="dialog">關於</a></li>
+                    <li><a href="#help" data-icon="info" data-rel="dialog">說明</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div data-role="page" id="about">
+        <div data-role="header"><h3>關於DTC</h3></div>
+        <div data-role="content" style="text-align:center;">
+            <p>本公司擁有最強的技術</p>
+            <p>本公司擁有最優的團隊</p>
+            <p>本公司擁有用心的服務</p>
+            <p>本公司擁有用佳的教育</p>
+        </div>
+        <div data-role="footer"><h3>DTC DESIGN</h3></div>
+    </div>
+    <div data-role="page" id="help">
+        <div data-role="header"><h3>DTC租屋網說明</h3></div>
+        <div data-role="content" style="text-align:center;">
+            <p>本應用程式提供房東、業者對使用者的一個交流平台</p>
+            <p>透過雲端平台分享要租屋、頂讓、銷售屋的資料</p>
+            <p>用戶可由此應用程式找到最適合的房子</p>
+        </div>
+        <div data-role="footer"><h3>DTC DESIGN</h3></div>
+    </div>
+</body>
+</html>

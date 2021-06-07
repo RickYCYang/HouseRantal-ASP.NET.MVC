@@ -1,0 +1,60 @@
+﻿
+@{
+    ViewBag.Title = "DTC租屋網";
+    Layout = "~/Views/Shared/_MobileHouseLayout.cshtml";
+}
+
+
+    <script>
+        $(document).ready(function () {
+            var maxNum = 3;
+            var minNum = 1;
+            var n = Math.floor(Math.random() *
+                (maxNum - minNum + 1)) + minNum;
+            $(".ad").attr("src", "/jQueryMobile/img/ad0" + n + ".jpg");
+            $(".ad").fadeOut(1000).fadeIn(1000);
+        });
+    </script>
+
+
+    
+        <div data-role="content" style="background:#FFF;padding:0px;">
+            <img src="img/ad01.jpg" class="ad">
+            <div class="ui-grid-c">
+                <div class="ui-block-a" style="text-align:center;">
+                    <br>
+                    <a href="@Url.Action("HouseList")?type=租屋" data-ajax="false">
+                        <img src="~/jQueryMobile/img/01.jpg">
+                    </a><br>
+                    租屋
+                </div>
+                <div class="ui-block-b" style="text-align:center;">
+                    <br>
+                    <a href="@Url.Action("HouseList")?type=中古屋" data-ajax="false">
+                        <img src="~/jQueryMobile/img/02.jpg">
+                    </a><br>
+                    中古屋
+                </div>
+                <div class="ui-block-c" style="text-align:center;">
+                    <br>
+                    <a href="@Url.Action("HouseList")?type=新房" data-ajax="false">
+                        <img src="~/jQueryMobile/img/03.jpg">
+                    </a><br>
+                    新房
+                </div>
+                <div class="ui-block-d" style="text-align:center;">
+                    <br>
+                    <a href="@Url.Action("HouseList")?type=頂讓" data-ajax="false">
+                        <img src="~/jQueryMobile/img/04.jpg">
+                    </a><br>
+                    頂讓
+                </div>
+            </div>
+            <p></p>
+            <div data-role="controlgroup" style="margin:10px;" data-type="vertical">
+                <button >教育學區</button>
+                <button >夜市美食</button>
+                <button >成衣工廠</button>
+            </div>
+        </div>
+ 

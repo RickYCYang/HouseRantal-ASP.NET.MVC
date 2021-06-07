@@ -1,0 +1,65 @@
+﻿@model prjHouseWebAp.Models.地點名稱
+
+@{
+    ViewBag.Title = "地點新增";
+    Layout = "~/Views/Shared/_MemberLayout.cshtml";
+}
+
+<h2>地點新增</h2>
+
+<form method="post" action="@Url.Action("HouseCreate")" enctype="multipart/form-data" >
+    
+    <div class="form-horizontal">
+        <hr />
+        <div class="form-group">
+            @Html.LabelFor(model => model.類型, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <select id="類型" name="類型" class="form-control">
+                    <option value="租屋">租屋</option>
+                    <option value="頂讓">頂讓</option>
+                    <option value="中古屋">中古屋</option>
+                    <option value="新房">新房</option>
+                </select>
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.名稱, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.名稱, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.名稱, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.照片, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input type="file" name="fImg" class="form-control" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.說明, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.說明, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.說明, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.地址, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.地址, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.地址, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="新增" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+</form>
+

@@ -1,0 +1,83 @@
+﻿@model prjHouseWebAp.Models.地點名稱
+
+@{
+    ViewBag.Title = "地點編輯";
+    Layout = "~/Views/Shared/_MemberLayout.cshtml";
+}
+
+<h2>地點編輯</h2>
+
+<form method="post" action="@Url.Action("HouseEdit")" enctype="multipart/form-data">
+
+    <div class="form-horizontal">
+        <h4>地點名稱</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.地點編號, new { htmlAttributes = new { @class = "form-control", type="hidden" } })
+                @Html.ValidationMessageFor(model => model.地點編號, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.類型, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <select id="類型" name="類型" class="form-control">
+                    <option value="租屋" @(Model.類型=="租屋"?"selected":"")>租屋</option>
+                    <option value="頂讓" @(Model.類型== "頂讓" ? "selected":"")>頂讓</option>
+                    <option value="中古屋" @(Model.類型== "中古屋" ? "selected":"")>中古屋</option>
+                    <option value="新房" @(Model.類型== "新房" ? "selected":"")>新房</option>
+                </select>
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.名稱, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.名稱, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.名稱, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.照片, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input type="file" id="fImg" name="fImg" class="form-control" />
+                @Html.HiddenFor(model => model.照片)
+                @if (Model.照片 == "question.png")
+                {
+                    @:無產品圖
+                }
+                else
+                {
+                    <img src="~/Images/@Model.照片" style="width:150px;" />
+                }
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.說明, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.說明, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.說明, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.地址, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.地址, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.地址, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="儲存" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+</form>
